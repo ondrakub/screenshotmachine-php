@@ -1,0 +1,16 @@
+{
+	"name": "ondrakub/screenshotmachine-php",
+	"description": "Easy-to-use library for works with https://screenshotmachine.com.",
+	"keywords": ["screenshotmachine", "screenshot", "machine"],
+	"homepage": "https://github.com/ondrakub/screenshotmachine-php",
+	"license": ["BSD-3"],
+	"authors": [
+		{
+			"name": "Ondřej Kubíček",
+			"homepage": "http://www.kubon.cz"
+		}
+	],
+	"autoload": {
+		"classmap": ["screenshotmachine.class.php"]
+	}
+}
