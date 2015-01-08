@@ -1,5 +1,5 @@
 
-Screnshotmachine for PHP
+Screenshotmachine for PHP
 ================================
 
 Screenshomachine for PHP is a very small and easy-to-use library for works with https://screenshotmachine.com
