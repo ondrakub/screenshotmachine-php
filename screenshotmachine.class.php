@@ -1,6 +1,14 @@
 <?php
 
-
+/**
+ * Screenshotmachine for PHP - small and easy-to-use library for works with https://screenshotmachine.com
+ *
+ * @author     Ondřej Kubíček
+ * @copyright  Copyright (c) 2015 Ondřej Kubíček
+ * @license    New BSD License
+ * @link       http://www.kubon.cz
+ * @version    1.0
+ */
 class Screenshotmachine
 {
 
@@ -12,7 +20,6 @@ class Screenshotmachine
 		'cacheLimit' => 0,
 		'timeout' => 200
 	];
-
 
 	private static $imageType = [
 		self::JPEG => IMAGETYPE_JPEG,
@@ -36,6 +43,11 @@ class Screenshotmachine
 		GIF = 'GIF';
 
 
+	/**
+	 * Create object
+	 * @param array parameters
+	 * @throws ScreenshotmachineException
+	 */
 	public function __construct(array $data)
 	{
 		if (!extension_loaded('curl')) {
@@ -52,16 +64,21 @@ class Screenshotmachine
 	}
 
 
+	/**
+	 * @return image to output
+	 */
 	public function getScreen()
 	{
 		header('Content-Type: ' . $this->getImageType());
 		echo $this->request();
 	}
 
+
 	private function getImageType()
 	{
 		return self::$imageType[$this->data['format']];
 	}
+
 
 	private function request()
 	{
@@ -87,6 +104,7 @@ class Screenshotmachine
 
 		return $result;
 	}
+
 
 	private function buildUrl()
 	{
