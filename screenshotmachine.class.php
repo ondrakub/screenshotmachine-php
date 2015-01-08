@@ -12,7 +12,7 @@
 class Screenshotmachine
 {
 
-	private $data = [
+	private $params = [
 		'key' => NULL,
 		'url' => NULL,
 		'size' => self::SIZE_T,
@@ -48,19 +48,19 @@ class Screenshotmachine
 	 * @param array parameters
 	 * @throws ScreenshotmachineException
 	 */
-	public function __construct(array $data)
+	public function __construct(array $params)
 	{
 		if (!extension_loaded('curl')) {
 			throw new ScreenshotmachineException('PHP extension CURL is not loaded.');
 		}
 
-		foreach ($data as $key => $value) {
-			if (!array_key_exists($key, $this->data)){
+		foreach ($params as $key => $value) {
+			if (!array_key_exists($key, $this->params)){
 				throw new ScreenshotmachineException('Invalid key: ' . $key);
 			}
 		}
 
-		$this->data = array_merge($this->data, $data);
+		$this->params = array_merge($this->params, $params);
 	}
 
 
@@ -76,7 +76,7 @@ class Screenshotmachine
 
 	private function getImageType()
 	{
-		return self::$imageType[$this->data['format']];
+		return self::$imageType[$this->params['format']];
 	}
 
 
@@ -108,7 +108,7 @@ class Screenshotmachine
 
 	private function buildUrl()
 	{
-		return self::API_URL . '?' . http_build_query($this->data);
+		return self::API_URL . '?' . http_build_query($this->params);
 	}
 
 }
