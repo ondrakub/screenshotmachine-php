@@ -3,7 +3,7 @@
 	"description": "Easy-to-use library for works with https://screenshotmachine.com.",
 	"keywords": ["screenshotmachine", "screenshot", "machine"],
 	"homepage": "https://github.com/ondrakub/screenshotmachine-php",
-	"license": ["BSD-3"],
+	"license": ["BSD-3-Clause"],
 	"authors": [
 		{
 			"name": "Ondřej Kubíček",
